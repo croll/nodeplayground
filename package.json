@@ -1,0 +1,35 @@
+{
+	"name"           : "captainjs",
+	"description"    : "Captain on nodejs",
+	"homepage"       : "http://www.croll.fr",
+	"keywords"       : ["captain", "croll"],
+	"author"         : "CROLL Dev Team",
+	"contributors"   : [
+		{ 
+			"name": "Christophe Beveraggi",
+			"name": "Nicolas Dimitrijevic" 
+		}
+	],
+	"dependencies" : {
+		"async"               : "latest",
+		"async-stacktrace"    : "latest",
+		"express"             : ">= 3",
+		"log4js"              : "latest",
+		"jade"                : "latest",
+		"underscore"          : "latest",
+		"mongoose"						:	"latest",
+		"i18n"								:	"latest",
+		"formidable"					:	"latest"
+	},
+	"bin": { 
+		"captainjs": "server.js" 
+	},
+	"devDependencies": {
+		"jshint"  : "*"
+	},
+	"engines" : { 
+		"node"  : ">=0.6.0",
+		"npm"   : ">=1.0"
+	},
+	"version"        : "1.0.0"
+}

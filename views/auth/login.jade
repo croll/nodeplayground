@@ -1,0 +1,13 @@
+extends ../layout
+block append main-container
+	h1 Login
+	form(action='/login', method='POST')
+		p
+			label(for='username_field') Username:
+			input(type='text', name='username')
+		p
+			label(for='password_field') Password:
+			input(type='password', name='password')
+		p
+			input(type='submit')
+		div= __t('testouilleee');

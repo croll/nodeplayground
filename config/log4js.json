@@ -1,0 +1,24 @@
+{
+  "appenders": [
+		{
+			"type": "console",
+			"category": "../logs/console-log"	
+		},
+    {
+      "type": "file",
+      "filename": "logs/access.log",
+      "maxLogSize": 20480,
+      "backups": 3,
+      "pollInterval": 15,
+      "category": "../logs/access-log"
+    },
+    {
+      "type": "file",
+      "filename": "logs/error.log",
+      "maxLogSize": 20480,
+      "backups": 3,
+      "pollInterval": 15,
+      "category": "../logs/error-log"
+    }
+  ]
+}

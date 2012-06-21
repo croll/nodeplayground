@@ -1,0 +1,14 @@
+{
+	"db": {
+		"host": "localhost",
+		"port": 27017,
+		"name": "captainhookjs"
+	},
+	"server": {
+		"port" : 3000
+	},
+	"log" : {
+		"level": "ALL"
+	},
+	"secret": "sdqreiowqurqiEOUIrepw(*$(*@899832#&$"
+}

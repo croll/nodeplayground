@@ -1,0 +1,3 @@
+{
+	"testouille": "testouille FR"
+}
