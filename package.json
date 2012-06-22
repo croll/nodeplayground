@@ -19,6 +19,9 @@
 		"underscore"          : "latest",
 		"mongoose"						:	"latest",
 		"i18n"								:	"latest",
+		"validator"						:	"latest",
+		"nodemailer"					:	"latest",
+		"stylus"							:	"latest",
 		"formidable"					:	"latest"
 	},
 	"bin": { 

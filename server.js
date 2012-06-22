@@ -3,6 +3,7 @@ var log4js = require('log4js');
 var async = require('async');
 var express = require('express');
 var mongoose = require('mongoose');
+var stylus = require('stylus');
 var Schema = mongoose.Schema;
 var captain = {};
 captain.i18n = require('i18n');
@@ -57,6 +58,10 @@ captain.app.configure(function() {
 	captain.app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   captain.app.use(captain.i18n.init);
 	captain.app.use(captain.app.router);
+	captain.app.use(stylus.middleware({
+		src: __dirname + '/views',
+		dest: __dirname + '/public'
+	}));
 });
 
 // Start server
