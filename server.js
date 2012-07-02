@@ -29,8 +29,6 @@ captain.app = express();
 // routes 
 var routes = require(__dirname+'/lib/routes.js');
 routes.init(captain.app);
-var users = require(__dirname+'/config/routes.js').users;
-var pets = require(__dirname+'/config/routes.js').pets;
 routes.add(require(__dirname+'/config/routes.js').routes);
 
 // Log
