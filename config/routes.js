@@ -17,6 +17,10 @@ var books = {
 		res.send('user ' + req.params.uid + '\'s books');
 	},
 
+	get: function(req, res){
+		res.send('user ' + req.params.uid +'\'s book id '+req.params.pid);
+	},
+
 	del: function(req, res){
 		res.send('delete ' + req.params.uid + '\'s book ' + req.params.pid);
 	}
@@ -31,7 +35,8 @@ module.exports.routes = {
 			"/books" : {
 				get : books.list,
 				"/:pid" : {
-					get : books.del
+					get : books.get,
+					del : books.del
 				}
 			}
 		}
