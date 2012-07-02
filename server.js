@@ -23,13 +23,20 @@ if (!fs.existsSync(configFile)) {
 	}
 }
 
+// Express server
+captain.app = express();
+
+// routes 
+var routes = require(__dirname+'/lib/routes.js');
+routes.init(captain.app);
+var users = require(__dirname+'/config/routes.js').users;
+var pets = require(__dirname+'/config/routes.js').pets;
+routes.add(require(__dirname+'/config/routes.js').routes);
+
 // Log
 log4js.configure('config/log4js.json', {});
 captain.logger = log4js.getLogger('error-log');
 captain.logger.setLevel(captain.config.log.level);
-
-// Express server
-captain.app = express();
 
 // i18n
 captain.i18n.configure({
@@ -39,31 +46,6 @@ captain.i18n.configure({
 captain.app.locals.use(function(req, res) {
 	res.locals.__t = captain.i18n.__;
 	res.locals.__n = captain.i18n.__n;
-});
-
-var users = require(__dirname+'/config/routes.js').users;
-var pets = require(__dirname+'/config/routes.js').pets;
-
-// Routes
-var routes = require(__dirname+'/lib/routes.js');
-routes.init(captain.app);
-routes.add({
-	'/users': {
-		get: users.list,
-		del: users.del,
-		'/:uid' : {
-			get: users.get
-		}
-	}
-});
-
-routes.add({
-			'/pets': {
-				get: pets.list,
-				'/:pid': {
-					del: pets.del
-				}
-			}
 });
 
 // Template engine

@@ -1,4 +1,4 @@
-module.exports.users = {
+var users = {
 	list: function(req, res){
 		res.send('user list');
 	},
@@ -12,12 +12,28 @@ module.exports.users = {
 	}
 };
 
-module.exports.pets = {
+var books = {
 	list: function(req, res){
-		res.send('user ' + req.params.uid + '\'s pets');
+		res.send('user ' + req.params.uid + '\'s books');
 	},
 
 	del: function(req, res){
-		res.send('delete ' + req.params.uid + '\'s pet ' + req.params.pid);
+		res.send('delete ' + req.params.uid + '\'s book ' + req.params.pid);
 	}
 };
+
+module.exports.routes = {
+	"/users": {
+		get: users.list,
+		del: users.del,
+		"/:uid" : {
+			get: users.get,
+			"/books" : {
+				get : books.list,
+				"/:pid" : {
+					get : books.del
+				}
+			}
+		}
+	}
+}
