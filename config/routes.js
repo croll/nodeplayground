@@ -26,7 +26,14 @@ var books = {
 	}
 };
 
+var os = require('os');
+
 module.exports.routes = {
+	"/" : {
+		get: function(req, res) {
+			res.render('index', {'platform': os.platform(), 'os': os});
+		}
+	},
 	"/users": {
 		get: users.list,
 		del: users.del,
