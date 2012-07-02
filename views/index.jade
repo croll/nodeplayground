@@ -1,8 +1,6 @@
 extends layout
 block append main-container
-	- function pouet() { 
-	-	console.log('yo'); 
-	-	}
-	- pouet();
-	div #{toto}
-		| yabon
+	div Node 0.8.1
+	div OS: #{plateform}
+	div Load average: 
+		| !{os.loadavg().toString().split(',')[0]}

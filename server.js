@@ -41,8 +41,30 @@ captain.app.locals.use(function(req, res) {
 	res.locals.__n = captain.i18n.__n;
 });
 
+var users = require(__dirname+'/config/routes.js').users;
+var pets = require(__dirname+'/config/routes.js').pets;
+
 // Routes
-require(__dirname+'/config/routes.js').init(captain);
+var routes = require(__dirname+'/lib/routes.js');
+routes.init(captain.app);
+routes.add({
+	'/users': {
+		get: users.list,
+		del: users.del,
+		'/:uid' : {
+			get: users.get
+		}
+	}
+});
+
+routes.add({
+			'/pets': {
+				get: pets.list,
+				'/:pid': {
+					del: pets.del
+				}
+			}
+});
 
 // Template engine
 captain.app.set('views', __dirname+'/views');
@@ -66,3 +88,4 @@ captain.app.configure(function() {
 
 // Start server
 captain.app.listen(captain.config.server.port);
+console.log('Server ready');

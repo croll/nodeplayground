@@ -1,21 +1,23 @@
-module.exports.init = function(captain) {
+module.exports.users = {
+	list: function(req, res){
+		res.send('user list');
+	},
 
-	captain.app.get('/', function(req, res) {
-		res.render('index', {'toto' :'yabon'});
-	});
+	get: function(req, res){
+		res.send('user ' + req.params.uid);
+	},
 
-	captain.app.get('/login', function(req, res) {
-		//captain.i18n.setLocale('fr');
-		res.render('auth/login');
-	});
+	del: function(req, res){
+		res.send('delete users');
+	}
+};
 
-	captain.app.post('/login', function(req, res) {
-    var form = new captain.formidable.IncomingForm();
-		form.parse(req, function(err, fields, files) {
-			console.log(fields);
-			console.log(files);
-		});
-		res.render('auth/login');
-	});
+module.exports.pets = {
+	list: function(req, res){
+		res.send('user ' + req.params.uid + '\'s pets');
+	},
 
+	del: function(req, res){
+		res.send('delete ' + req.params.uid + '\'s pet ' + req.params.pid);
+	}
 };
